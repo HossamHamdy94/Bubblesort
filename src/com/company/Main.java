@@ -6,52 +6,43 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] a = new int[50];
+        boolean isSorted = true;
+        int[] a ;
+        a = new int[]{83, 5, 21, 14, 77};
         int n, i, j, temp, k;
         Scanner scanner = new Scanner(System.in);
 
-
-        boolean flag = true;
-        System.out.println("Enter the size of array: ");
-        n= scanner.nextInt();
-        System.out.println("Enter the array elements: ");
-        for (i = 0; i < n; ++i)
-            a[i]=scanner.nextInt() ;
-
         System.out.println("the unsorted array  ");
-        for (i = 0; i < n; ++i)
+        for (i = 0; i < a.length; ++i)
         {
             System.out.println(a[i] + " ");
-
         }
-
         i = 1;
-        while ((i<n-1) && (flag = true))
+        while ((i<a.length-1) && (isSorted = true))
         {
-            //f = false;
-            flag = false;
-            for (j = 0; j<(n - i); ++j){
+            isSorted = false;
+            for (j = 0; j<(a.length - i); ++j){
                 if (a[j]>a[j + 1])
                 {
                     temp = a[j];
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
-                    flag = true;
+                    isSorted = true;
                     //f = true;
-
                 }
 
             }
-            System.out.println("the array phase "+ "   "+ i);
-            for (k = 0; k < n; ++k){
+            if (isSorted== false)break;
+            System.out.println("Round "+ " "+ i);
+            for (k = 0; k < a.length; ++k){
                 System.out.println(a[k]+"  ");
             }
+
             i++;
+
         }
-
-
         System.out.println( "Array after bubble sort:");
-        for (i = 0; i < n; ++i)
+        for (i = 0; i < a.length; ++i)
              System.out.println("  "+ a[i]);
     }
 }
