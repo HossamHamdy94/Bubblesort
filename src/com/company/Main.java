@@ -4,7 +4,14 @@ import java.util.Scanner;
 
 public class Main {
 
+
+    static void printArray (int[] array ) {
+        for (int i = 0; i < array.length; ++i)
+            System.out.println("  "+ array[i]);
+    }
+
     public static void main(String[] args) {
+
 
         boolean isSorted = true;
         int[] a ;
@@ -12,11 +19,9 @@ public class Main {
         int n, i, j, temp, k;
         Scanner scanner = new Scanner(System.in);
 
+
         System.out.println("the unsorted array  ");
-        for (i = 0; i < a.length; ++i)
-        {
-            System.out.println(a[i] + " ");
-        }
+        printArray(a);
         i = 1;
         while ((i<a.length-1) && (isSorted = true))
         {
@@ -28,21 +33,17 @@ public class Main {
                     a[j] = a[j + 1];
                     a[j + 1] = temp;
                     isSorted = true;
-                    //f = true;
                 }
-
             }
             if (isSorted== false)break;
             System.out.println("Round "+ " "+ i);
-            for (k = 0; k < a.length; ++k){
-                System.out.println(a[k]+"  ");
-            }
+            printArray(a);
 
             i++;
 
         }
         System.out.println( "Array after bubble sort:");
-        for (i = 0; i < a.length; ++i)
-             System.out.println("  "+ a[i]);
+        printArray(a);
     }
+
 }
